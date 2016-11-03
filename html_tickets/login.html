@@ -1,0 +1,51 @@
+<gb-component class="name-login" tpl-bindAttr="id#ticketId">
+    <style type="text/css">
+        gb-component.name-login {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;}
+        gb-component.name-login > div {
+            width: 90%;
+            max-width: 30rem;
+            margin: 4rem auto;}
+        gb-component.name-login form {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 0.25rem;
+            text-align: center;
+            font-weight: 300;}
+        gb-component.name-login h2 {
+            margin-top: 0;}
+        gb-component.name-login p {
+            margin: 1rem 0 2rem;}
+        gb-component.name-login input {
+            display: block;
+            width: 100%;
+            background-color: #fff;
+			border-radius: 0.25rem;
+			margin-bottom: 1rem;
+            text-align: center;
+			box-shadow: inset 0 0 1px 1px #999;}
+        gb-component.name-login .button {
+            display: block;}
+        gb-component.name-login .extras {
+            text-align: right;
+            margin: 1rem 0 0;
+            font-size: 0.875rem;}
+    </style>
+    <div>
+        <form>
+            <h2 tpl-bind="Title.Value">Login</h2>
+            <p tpl-bindHtml="Content.Value"></p>
+            <input type="text" name="login" value="" placeholder="Email" />
+            <input type="password" name="password" value="" placeholder="Password" />
+            <a class="button" href="#" data-action-click="Login">Login</a>
+            <p class="extras">
+                <a href="#" data-action-click="Signup">Signup</a> or
+                <a href="#" data-action-click="Reset">reset password</a>.
+            </p>
+        </form>
+    </div>
+</gb-component>

@@ -1,0 +1,28 @@
+<gb-component class="jquery-example" tpl-bindAttr="id#ticketId">
+	<style type="text/css">
+		gb-component.jquery-example {
+			outline: 1px solid red;}
+	</style>
+	<span id="time"></span>
+	<span id="date"></span>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+	<script>
+		(function($) {
+			
+			function update() {
+				if (window.moment) {
+					$('.jquery-example #time').text( moment().format('HH:mm') );
+					$('.jquery-example #date').text( moment().format('ddd, MMM D') );
+				}
+			}
+
+			if (!window.isHeaderInitialized && $) {
+				window.isHeaderInitialized = true;
+				setInterval(update, 1000);
+				update();
+			}
+			
+		})((window.require && window.require('jQuery')) || window.jQuery);
+	</script>
+</gb-component>

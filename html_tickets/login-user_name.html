@@ -1,0 +1,46 @@
+<gb-component tpl-bindAttr="id#ticketId" class="login-user_name">
+	<!-- Displays a Collection of Contacts like the macOS login selector with image and name to click on.  -->
+	<style type="text/css">
+		gb-component.login-user_name {
+			box-sizing: border-box;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;}
+		gb-component.login-user_name ul {
+			width: 90%;
+			max-width: 40rem;
+			margin: 0 auto;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;}
+		gb-component.login-user_name li {
+			list-style: none;
+			width: 9rem;
+			margin: 0.5rem;
+			padding: 0.5rem;
+			border-radius: 0.25rem;}
+		gb-component.login-user_name li:hover {
+			background-color: rgba(255, 255, 255, 0.7);}
+		gb-component.login-user_name .img {
+			height: 6rem;
+			width: 6rem;
+			border-radius: 3rem;
+			background-color: #ccc;
+			background-size: cover;
+			box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+			margin: 0.5rem auto 1rem;}
+	</style>
+	<ul tpl-bindCollection="binds">
+		<li data-action-click="Login" tpl-bindAttr="to.id#data-action-click-contextTicketId">
+			<div class="img" tpl-bindAttr="to.Photo.Value#style" style="background-image: url('https://web.gumbuya.net/api/http-snaplets/gumbuya.nodejs.sss-http.blob/{{to.Photo.Value}}');"></div>
+			<div>
+				<span tpl-bind="to.FirstName.Value">Foo</span>
+				<span tpl-bind="to.LastName.Value"></span>
+			</div>
+		</li>
+	</ul>
+</gb-component>

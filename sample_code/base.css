@@ -1,0 +1,87 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,300,400italic,500,300italic,700,700italic,500italic");
+
+@font-face {
+	font-family: 'Gumbuya Icons';
+	font-weight: normal;
+	font-style: normal;
+	src:url('https://static.gumbuya.net/gumbuya.net/fonts/gb_icons.eot');
+	src:url('https://static.gumbuya.net/gumbuya.net/fonts/gb_icons.eot?#iefix') format('embedded-opentype'),
+		url('https://static.gumbuya.net/gumbuya.net/fonts/gb_icons.woff') format('woff'),
+		url('https://static.gumbuya.net/gumbuya.net/fonts/gb_icons.svg#gb_icons_mini') format('svg'),
+		url('https://static.gumbuya.net/gumbuya.net/fonts/gb_icons.ttf') format('truetype');
+}
+/* FONTS */
+
+
+/* RESET */
+#base {
+	height: 100%;
+	width: 100%;}
+#base * {
+	box-sizing: border-box;}
+@media all and (max-width: 20rem) {
+	#base * {
+		-ms-overflow-style: -ms-autohiding-scrollbar;}
+}
+#base > .gumbuya-minipanes {
+	height: 100%;
+	min-width: 320px;
+	width: 100%;
+	padding: 0;}
+#base .gumbuya-app-composer-endpoint-page-layout-sub {
+	background-color: transparent !important;}
+#base .gumbuya-impl-ttpl-item-html-simple.default {
+	min-height: 0;}
+#base .gumbuya-impl-ttpl-thread-input-media:empty,
+#base .pane.subsequent div:empty,
+#base .name-edit-form .input-container .status-icon-wrapper .text {
+	display: none;}
+#base .gb-is-header {
+	padding: 0;}
+#base .gb-is-header .gallery-heading p {
+	min-height: 0;}
+#base .gumbuya-impl-ttpl-item-genericgallery.default .gb-is-header .relwrapper>.tab-filter {
+	margin: 0;
+	padding: 0;}
+#base a,
+#base [data-action-click]  {
+	cursor: pointer;}
+#base .input-wrapper {
+	border: 0;}
+#base .gumbuya-app-composer-endpoint-page-is-surface-new {
+	height: 100%;}
+/* RESET END */
+
+
+/* THEME */
+#base,
+#base .pane,
+#base .minipanes-pane > .pane,
+#base .view-root,
+.app#gumbuya-app-main {
+	background-color: #f9f9f9;
+	color: #333;}
+#base {
+	font-family: 'Fira Sans', "Open Sans", "Helvetica", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.3;}
+#base * {
+	transition: all 0.3s ease;}
+#base a,
+#base [data-action-click]  {
+	color: #ae2024;}
+#base a:hover,
+#base [data-action-click]:hover {
+	color: #6E1518;}
+#base a.button,
+#base .gb-is-submitform {
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	background-color: #ae2024;
+	border: 0;
+	color: #fff;}
+#base a.button:hover,
+#base .gb-is-submitform:hover {
+	background-color: #6E1518;}
+/* THEME END */

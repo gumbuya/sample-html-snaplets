@@ -1,0 +1,104 @@
+<gb-component class="name-notify" tpl-bindAttr="id#ticketId">
+	<!-- Sends a notification via SMS/email -->
+	<style type="text/css">
+		gb-component.name-notify > div {
+			width: 20rem;
+			margin: 1rem auto;
+			background-color: #ddd;
+			border-radius: 0.5rem;
+			padding: 1rem;
+			text-align: right;}
+		gb-component.name-notify h2,
+		gb-component.name-notify label,
+		gb-component.name-notify input,
+		gb-component.name-notify textarea {
+			text-align: left;
+			display: block;
+			width: 100%;}
+		gb-component.name-notify label {
+			margin-bottom: 0.5rem;
+			text-transform: uppercase;}
+		gb-component.name-notify input,
+		gb-component.name-notify textarea {
+			background-color: #fff;
+			border-radius: 0.25rem;
+			padding: 0.5rem;
+			margin-bottom: 1rem;
+			box-shadow: inset 0 0 1px 1px #ddd;}
+		gb-component.name-notify textarea {
+			height: 7rem;}
+		gb-component.name-notify .button {
+			display: inline-block;
+			background-color: #ae2024;
+			padding: 0.5rem 1rem;
+			border-radius: 0.25rem;
+			color: #fff;
+			text-transform: uppercase;}
+		gb-component.name-notify .button:hover {
+			background-color: #6E1518;}
+	</style>
+	<div>
+		<h2>Send a Message with Clickatell</h2>
+		<label>Phone Number:</label>
+		<input id="number" type="phone" name="number" placeholder="6598151224" />
+		<label>Email Address:</label>
+		<input id="email" type="email" name="email" placeholder="marcosp@gumbuya.com" />
+		<!--
+			<label>Message</label>
+			<textarea></textarea>
+		-->
+		<a class="button">Send</a>
+	</div>
+	<script>
+		require(['jQuery'], function ($) {
+			$(function () {
+
+				var sms = {
+					number:		"6512345678", // 65 is the SG country code
+					text:   	"Gumbuya says: ",
+				};
+				var email = {
+					from:		"Mailgun Sandbox <postmaster@sandbox3cc57cbff0b249fb9bebc9929ca78880.mailgun.org>",
+					to:			"info@gumbuya.com",
+					subject:	"Notification Subject",
+					text:		"Gumbuya says: ",
+				};
+
+				/* SEND SMS */
+				//Note: For the free account in use, the message is cannot be changed.
+				var sendSms = function() {
+					sms.number = $(".name-notify #number")[0].value;
+					sms.text = sms.text + $("textarea")[0].value;
+					var url = "https://api.clickatell.com/http/sendmsg?api_id=3604457&user=gumbuya&password=L9KnUTeaxMgcvY6Ehndi&to=" + sms.number + "&text=" + sms.text;
+					$.get(url);
+					console.log(url);
+				};
+
+				/* SEND EMAIL */
+				// Note: Sending email does not seem to work just now /WM
+				var sendEmail = function() {
+					email.to = $(".name-notify #email")[0].value;
+					$.ajax({
+						method: "POST",
+						url: "https://api.mailgun.net/v3/sandbox3cc57cbff0b249fb9bebc9929ca78880.mailgun.org/messages",
+						dataType: "json",
+						username:"api",
+						password: "key-7bb5b5825698f5e777e4719af7d19dac",
+						data: email,
+					}).done(function(msg) {
+						console.log("Response: " + msg );
+					});
+					console.log("sendEmail");
+				}
+
+				$(".name-notify a").on('click', function(e) {
+					console.log("click");
+					sendSms();
+					sendEmail();
+				});
+
+				console.log("setup complete");
+			});
+		});
+	</script>
+</gb-component>
