@@ -60,7 +60,7 @@
 #base .minipanes-pane > .pane,
 #base .view-root,
 .app#gumbuya-app-main {
-	background-color: #f9f9f9;
+	background-color: #fff !important;
 	color: #333;}
 #base {
 	font-family: 'Fira Sans', "Open Sans", "Helvetica", Arial, sans-serif;
